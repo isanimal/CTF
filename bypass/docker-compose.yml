@@ -1,0 +1,11 @@
+
+services:
+  web:
+    build: ./web
+    ports:
+      - "8000:80"
+    volumes:
+      - ./web:/var/www/html
+    environment:
+      - FLAG=CTF{bypass_admin}
+    restart: unless-stopped

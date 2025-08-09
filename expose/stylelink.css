@@ -1,0 +1,42 @@
+body {
+    background: linear-gradient(135deg, #e3f0ff 0%, #b3d8ff 100%);
+    color: #222;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header, h1, h2, h3 {
+    color: #1565c0;
+}
+
+.container {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(21,101,192,0.08);
+    padding: 24px;
+    margin: 32px auto;
+    max-width: 600px;
+}
+
+a {
+    color: #1565c0;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+button, .btn {
+    background: linear-gradient(90deg, #1565c0 0%, #42a5f5 100%);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 24px;
+    font-size: 1em;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(21,101,192,0.10);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+button:hover, .btn:hover {
+    background: linear-gradient(90deg, #0d47a1 0%, #1976d2 100%);
+    box-shadow: 0 4px 12px rgba(21,101,192,0.18);
+}

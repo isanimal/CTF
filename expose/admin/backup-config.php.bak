@@ -1,0 +1,10 @@
+# CTF{Directory_} --Part1
+// Backup of configuration (left on server by mistake)
+db_host=localhost
+db_name=payroll
+db_user=root
+db_pass=root
+
+# Admin credentials (plaintext)
+admin_user=admin
+admin_pass=admin123

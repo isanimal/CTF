@@ -1,0 +1,7 @@
+version: "3.8"
+services:
+  exposedgit:
+    build: .
+    ports:
+      - "2206:80"
+    restart: unless-stopped

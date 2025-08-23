@@ -1,0 +1,47 @@
+version: "3.9"
+services:
+  reverse-proxy:
+    image: nginx:alpine
+    volumes:
+      - ./reverse-proxy/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "8000:80"
+    depends_on:
+      - dashboard-a
+      - dashboard-b
+      - dashboard-c
+      - internal-server
+    restart: unless-stopped
+
+  dashboard-a:
+    image: php:8.2-apache
+    volumes:
+      - ./dashboard-a:/var/www/html
+    environment:
+      - TOKEN_A=token-a-keep-going
+    restart: unless-stopped
+
+  dashboard-b:
+    image: php:8.2-apache
+    volumes:
+      - ./dashboard-b:/var/www/html
+    environment:
+      - TOKEN_B=token-b-almost-there
+    restart: unless-stopped
+
+  dashboard-c:
+    image: php:8.2-apache
+    volumes:
+      - ./dashboard-c:/var/www/html
+    environment:
+      - TOKEN_C=token-c-one-step-left
+      - INTERNAL_BASE=http://internal-server
+    restart: unless-stopped
+
+  internal-server:
+    image: php:8.2-apache
+    volumes:
+      - ./internal-server:/var/www/html
+    environment:
+      - FLAG_NCLP=NCLP{74ab6628-f9f0-4b4f-98c3-95a51676d8fa}
+    restart: unless-stopped
